@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="MarvelHeroesXF.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <Color x:Key="colorWhite">White</Color>
+        <Color x:Key="colorDark">#313140</Color>
+        <Color x:Key="colorRed">#F2264B</Color>
+        <Color x:Key="colorGrayLight">#B7B7C8</Color>
+    </Application.Resources>
+</Application>

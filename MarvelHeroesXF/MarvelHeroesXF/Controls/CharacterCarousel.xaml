@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MarvelHeroesXF.Controls.CharacterCarousel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:MarvelHeroesXF.Behavior">
+    <ContentView.Content>
+        <Grid RowDefinitions="auto, 230">
+            <Grid Grid.Row="0" ColumnDefinitions="*, auto">
+                <Label
+                    x:Name="lbTitle"
+                    Grid.Column="0"
+                    FontFamily="GilroyBold"
+                    FontSize="18"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="{StaticResource colorRed}"
+                    VerticalTextAlignment="Center" />
+                <Label
+                    Grid.Column="1"
+                    Margin="0,0,25,0"
+                    FontFamily="GilroyMedium"
+                    FontSize="14"
+                    HorizontalOptions="End"
+                    Text="Ver tudo"
+                    TextColor="{StaticResource colorGrayLight}"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+            <ScrollView
+                Grid.Row="1"
+                HorizontalScrollBarVisibility="Never"
+                Orientation="Horizontal">
+                <FlexLayout
+                    x:Name="listCharacter"
+                    Direction="Row"
+                    JustifyContent="SpaceAround">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Margin="0,0,16,0"
+                                Padding="0"
+                                BackgroundColor="Gray"
+                                CornerRadius="16"
+                                HasShadow="False"
+                                IsClippedToBounds="True"
+                                WidthRequest="140">
+                                <Grid>
+                                    <Image Aspect="AspectFill" Source="{Binding image}" />
+                                    <BoxView>
+                                        <BoxView.Background>
+                                            <LinearGradientBrush StartPoint="{OnPlatform Android='1,0', iOS='1,1'}" EndPoint="{OnPlatform Android='1,1', iOS='1,0'}">
+                                                <GradientStop Offset="1" Color="#00212121" />
+                                                <GradientStop Offset="0.3" Color="#66000000" />
+                                                <GradientStop Offset="0" Color="#000000" />
+                                            </LinearGradientBrush>
+                                        </BoxView.Background>
+                                    </BoxView>
+                                    <StackLayout
+                                        Margin="14,0,0,6"
+                                        Spacing="2"
+                                        VerticalOptions="End">
+                                        <Label
+                                            FontFamily="GilroyMedium"
+                                            FontSize="10"
+                                            Text="{Binding personName}"
+                                            TextColor="{StaticResource colorWhite}" />
+                                        <Label
+                                            Margin="0,0,30,0"
+                                            FontFamily="GilroyHeavy"
+                                            FontSize="20"
+                                            Text="{Binding name}"
+                                            TextColor="{StaticResource colorWhite}" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                    <FlexLayout.Behaviors>
+                        <behaviors:FlexLayoutTappedBehavior Command="{Binding NavigateToDetailPageCommand}" />
+                    </FlexLayout.Behaviors>
+                </FlexLayout>
+            </ScrollView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

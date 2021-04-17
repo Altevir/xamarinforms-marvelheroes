@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\gilroy-bold.ttf" />
+    <None Remove="Fonts\gilroy-heavy.ttf" />
+    <None Remove="Fonts\Gilroy-Medium.ttf" />
+    <None Remove="Fonts\Gilroy-Regular.ttf" />
+    <None Remove="Fonts\gilroy-semibold.ttf" />
+    <None Remove="Fonts\materialdesignicons.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\gilroy-bold.ttf" />
+    <EmbeddedResource Include="Fonts\gilroy-heavy.ttf" />
+    <EmbeddedResource Include="Fonts\gilroy-medium.ttf" />
+    <EmbeddedResource Include="Fonts\gilroy-regular.ttf" />
+    <EmbeddedResource Include="Fonts\gilroy-semibold.ttf" />
+    <EmbeddedResource Include="Fonts\materialdesignicons.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\CharacterCarousel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

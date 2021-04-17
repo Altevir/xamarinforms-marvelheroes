@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MarvelHeroesXF.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MarvelHeroesXF.Controls"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <Grid Margin="0,20,0,20" RowDefinitions="40, auto, auto, auto, auto, auto, auto, auto, auto">
+            <Grid
+                Grid.Row="0"
+                Margin="25,0"
+                ColumnDefinitions="auto, *, auto"
+                HorizontalOptions="FillAndExpand">
+                <Path
+                    Grid.Column="0"
+                    Data="M2 19.5H10.75M2 4.5H22H2ZM2 12H22H2Z"
+                    HeightRequest="24"
+                    Stroke="Black"
+                    StrokeLineCap="Round"
+                    StrokeLineJoin="Round"
+                    StrokeThickness="2"
+                    VerticalOptions="Center"
+                    WidthRequest="24" />
+                <Path
+                    Grid.Column="1"
+                    Aspect="Uniform"
+                    Data="M82.5499 6.38066V0.00476114H65.196L62.3421 21.3053L59.518 0.00486458H53.2599L53.961 5.68855C53.2381 4.23252 50.6759 0.00486458 45.0374 0.00486458C45.0002 0.00238059 38.7708 0.00486458 38.7708 0.00486458L38.7468 31.0521L34.1854 0.00486458L25.9894 0L21.2705 32.1692L21.273 0.00465769H13.4289L10.6011 18.0742L7.84662 0.00486458H0V34.9781H6.17906V18.121L8.98978 34.9776H12.2748L15.046 18.121V34.9776H26.9582L27.681 29.5962H32.477L33.1974 34.9776L44.8923 34.985H44.9018V34.9776H44.9091H44.9164V23.6253L46.3501 23.4118L49.3183 34.985H49.3255H55.3602H55.3673L55.3649 34.9776H55.3756H55.3829L51.4878 21.4133C53.4618 19.9206 55.6905 16.1299 55.0973 12.5036V12.5012C55.1044 12.5503 58.7738 35 58.7738 35L65.9682 34.9776L70.8841 3.27732V34.9777H82.5502V28.6878H77.0125V20.6669H82.5502V14.2812H77.0125V6.38066H82.5499ZM28.4089 24.0502L30.1054 9.09856L31.8669 24.0502H28.4089ZM46.3702 17.1464C45.8946 17.3822 45.3988 17.5001 44.9161 17.5001V6.25056C44.9245 6.25056 44.9342 6.24828 44.9462 6.24828C45.4301 6.2458 49.038 6.39794 49.038 11.8139C49.038 14.647 47.8109 16.432 46.3702 17.1464ZM95 28.6829V34.9728H83.6196V0H89.7471V28.6829H95Z"
+                    Fill="#F2264B"
+                    HeightRequest="26"
+                    HorizontalOptions="Center"
+                    Stroke="#F2264B"
+                    StrokeLineCap="Square"
+                    StrokeThickness="0"
+                    VerticalOptions="Center" />
+                <Path
+                    Grid.Column="2"
+                    Data="M22 22L15.3333 15.3333L22 22ZM17.5556 9.77778C17.5556 10.7992 17.3544 11.8106 16.9635 12.7542C16.5726 13.6978 15.9997 14.5553 15.2775 15.2775C14.5553 15.9997 13.6978 16.5726 12.7542 16.9635C11.8106 17.3544 10.7992 17.5556 9.77778 17.5556C8.75639 17.5556 7.74499 17.3544 6.80135 16.9635C5.85771 16.5726 5.00029 15.9997 4.27806 15.2775C3.55582 14.5553 2.98292 13.6978 2.59205 12.7542C2.20118 11.8106 2 10.7992 2 9.77778C2 7.71498 2.81944 5.73667 4.27806 4.27806C5.73667 2.81944 7.71498 2 9.77778 2C11.8406 2 13.8189 2.81944 15.2775 4.27806C16.7361 5.73667 17.5556 7.71498 17.5556 9.77778Z"
+                    HeightRequest="24"
+                    Stroke="Black"
+                    StrokeLineCap="Round"
+                    StrokeLineJoin="Round"
+                    StrokeThickness="2"
+                    VerticalOptions="Center"
+                    WidthRequest="24" />
+            </Grid>
+            <Label
+                Grid.Row="1"
+                Margin="25,43,0,0"
+                FontFamily="GilroyRegular"
+                FontSize="14"
+                Text="Bem vindo ao Marvel Heroes"
+                TextColor="#B7B7C8" />
+            <Label
+                Grid.Row="2"
+                Margin="25,8,0,0"
+                FontFamily="GilroyHeavy"
+                FontSize="32"
+                Text="Escolha o seu&#10;personagem"
+                TextColor="{StaticResource colorDark}" />
+            <Grid
+                Grid.Row="3"
+                Margin="15,32,15,0"
+                ColumnDefinitions="*, *, *, *, *"
+                RowDefinitions="60">
+                <BoxView
+                    Grid.Column="0"
+                    xct:ShadowEffect.Color="#005BEA"
+                    xct:ShadowEffect.OffsetX="5"
+                    xct:ShadowEffect.OffsetY="10"
+                    xct:ShadowEffect.Opacity="{OnPlatform Android='1',
+                                                          iOS='0.3'}"
+                    xct:ShadowEffect.Radius="{OnPlatform Android='28'}"
+                    CornerRadius="28"
+                    HeightRequest="56"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="56">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Offset="0" Color="#005BEA" />
+                            <GradientStop Offset="1" Color="#00C6FB" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <Path
+                    Grid.Column="0"
+                    Aspect="Uniform"
+                    Data="M13.7772 5.34589V4.67032C13.7772 4.45883 13.6272 4.27649 13.4198 4.23575C12.9588 4.14511 12.4826 4.09827 11.9956 4.09827C11.6963 4.09872 11.4017 4.11688 11.1122 4.15244C10.9323 4.17426 10.7549 4.20264 10.5794 4.23727C10.372 4.27862 10.2228 4.46051 10.2228 4.67199V5.34317C7.51006 6.01733 5.39329 8.19965 4.8141 10.9483L2.69995 8.52161C2.44208 8.19187 1.91581 8.44364 2.01148 8.85151L4.65628 18.0662V19.0692C4.6575 19.5871 5.21291 19.917 5.67373 19.6797L11.6847 16.5875C11.8843 16.4851 12.1208 16.4876 12.3181 16.5935L18.3121 19.8175C18.7674 20.0625 19.3199 19.7447 19.3405 19.228C19.3426 19.1714 19.3439 19.115 19.3439 19.0579V18.0655L21.9885 8.85151C22.0843 8.44364 21.5579 8.19187 21.3 8.52161L19.1755 10.9603C18.5822 8.21859 16.4787 6.02539 13.7772 5.34589ZM10.8693 11.7412V13.8603C10.8693 14.0973 10.7323 14.3128 10.5176 14.413L8.52942 15.3407C8.30511 15.4454 8.03992 15.4042 7.85803 15.2361L6.14356 13.6534C5.94535 13.4706 5.89088 13.1792 6.00929 12.937L6.72645 11.4733C6.82868 11.2638 7.04139 11.1312 7.27423 11.1312H10.2598C10.5964 11.1312 10.8693 11.4044 10.8693 11.7412ZM17.8565 13.6534C18.0547 13.4706 18.1091 13.1792 17.9907 12.937L17.2736 11.4733C17.1713 11.2638 16.9586 11.1312 16.7258 11.1312H13.7404C13.4037 11.1312 13.1307 11.4044 13.1307 11.7412V13.8603C13.1307 14.0973 13.2677 14.3128 13.4824 14.413L15.4706 15.3407C15.6949 15.4454 15.9601 15.4042 16.1421 15.2361L17.8565 13.6534Z"
+                    Fill="White"
+                    HeightRequest="26"
+                    HorizontalOptions="Center"
+                    Stroke="White"
+                    StrokeThickness="0"
+                    VerticalOptions="Center"
+                    WidthRequest="26" />
+                <BoxView
+                    Grid.Column="1"
+                    xct:ShadowEffect.Color="#ED1D24"
+                    xct:ShadowEffect.OffsetX="5"
+                    xct:ShadowEffect.OffsetY="10"
+                    xct:ShadowEffect.Opacity="{OnPlatform Android='1',
+                                                          iOS='0.3'}"
+                    xct:ShadowEffect.Radius="{OnPlatform Android='28'}"
+                    CornerRadius="28"
+                    HeightRequest="56"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="56">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Offset="0" Color="#ED1D24" />
+                            <GradientStop Offset="1" Color="#ED1F69" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <Path
+                    Grid.Column="1"
+                    Aspect="Uniform"
+                    Data="M12.2735 2H11.6722C7.60851 2 4.34369 5.01666 4.34369 8.72565V12.5566C4.34369 13.8121 5.12498 14.9379 6.3749 15.3167V17.7355C6.3749 20.1269 10.7119 22 11.5165 22H12.4292C13.2337 22 17.6251 20.1269 17.6251 17.7355V15.3167C18.875 14.938 19.6563 13.8119 19.6563 12.5566V8.72565C19.6564 5.01666 16.3372 2 12.2735 2ZM11.9729 12.7793C12.6658 12.7793 13.0465 14.5462 13.0465 15.1318C13.0465 15.6929 12.7244 15.7684 12.4092 15.7684C12.3473 15.7684 12.2806 15.7659 12.2102 15.763C12.0604 15.7569 11.8852 15.7569 11.7361 15.763C11.6655 15.766 11.5989 15.7684 11.5367 15.7684C11.3868 15.7684 11.2161 15.7543 11.0874 15.6495C10.9591 15.5452 10.8994 15.3806 10.8994 15.1318C10.8994 14.5462 11.2801 12.7793 11.9729 12.7793ZM7.58435 10.7548C7.85796 10.4249 8.24836 10.2263 8.68404 10.1969L9.37381 10.1498C10.2954 10.0889 11.0154 10.5626 11.0154 11.2033C11.0154 11.8164 10.3991 12.6102 9.61253 13.0103L9.01413 13.3145C8.80308 13.422 8.59092 13.4764 8.38436 13.4764C7.801 13.4764 7.37379 13.0524 7.29491 12.3962L7.24019 11.9391C7.18851 11.5057 7.31059 11.0852 7.58435 10.7548ZM16.6129 15.7889L15.1251 16.2939V17.1582C15.1251 17.18 15.1073 17.2025 15.1028 17.2232C15.0679 17.9752 14.3935 18.4064 13.2676 18.4064H10.6298C9.74949 18.4064 8.87508 17.9761 8.87508 17.1582V16.2939L7.36339 15.7889C7.19987 15.7339 7.10755 15.5569 7.16259 15.3932C7.21731 15.2297 7.39283 15.1412 7.55603 15.1966L9.27989 15.7731C9.40725 15.816 9.50005 15.9352 9.50005 16.0696V17.1585C9.50005 17.3452 9.61253 17.4828 9.78437 17.5811C9.80597 17.4296 9.95125 17.3126 10.1087 17.3126C10.2812 17.3126 10.4375 17.4526 10.4375 17.6251V17.7649C10.4375 17.7744 10.5575 17.7816 10.6297 17.7816H11.0625V17.6249C11.0625 17.4524 11.2025 17.3124 11.3749 17.3124C11.5474 17.3124 11.6874 17.4524 11.6874 17.6249V17.7816H12.3124V17.6249C12.3124 17.4524 12.4524 17.3124 12.6249 17.3124C12.7974 17.3124 12.9374 17.4524 12.9374 17.6249V17.7816H13.2674C13.3487 17.7816 13.406 17.7764 13.5623 17.7688V17.6251C13.5623 17.4526 13.6884 17.3126 13.8609 17.3126C14.0303 17.3126 14.1604 17.4475 14.1655 17.6158C14.3441 17.5227 14.4826 17.3795 14.4826 17.1587C14.4826 17.1395 14.4996 17.1208 14.4996 17.1024V16.0697C14.4996 15.9353 14.5697 15.8161 14.6971 15.7732L16.4057 15.1967C16.5695 15.1414 16.7505 15.2299 16.8052 15.3934C16.8609 15.5567 16.7766 15.7339 16.6129 15.7889ZM16.8972 11.939L16.8425 12.3959C16.7639 13.0522 16.3364 13.4763 15.7532 13.4763C15.5465 13.4763 15.3347 13.4219 15.1233 13.3143L14.525 13.0102C13.7383 12.61 13.1222 11.8164 13.1222 11.2031C13.1222 10.5625 13.8442 10.0892 14.7636 10.1497L15.4535 10.1967C15.8891 10.2263 16.2795 10.4247 16.5532 10.7548C16.8271 11.0852 16.9492 11.5057 16.8972 11.939Z"
+                    Fill="White"
+                    HeightRequest="26"
+                    HorizontalOptions="Center"
+                    Stroke="White"
+                    StrokeThickness="0"
+                    VerticalOptions="Center"
+                    WidthRequest="26" />
+                <BoxView
+                    Grid.Column="2"
+                    xct:ShadowEffect.Color="#B224EF"
+                    xct:ShadowEffect.OffsetX="5"
+                    xct:ShadowEffect.OffsetY="10"
+                    xct:ShadowEffect.Opacity="{OnPlatform Android='1',
+                                                          iOS='0.3'}"
+                    xct:ShadowEffect.Radius="{OnPlatform Android='28'}"
+                    CornerRadius="28"
+                    HeightRequest="56"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="56">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Offset="0" Color="#B224EF" />
+                            <GradientStop Offset="1" Color="#7579FF" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <Path
+                    Grid.Column="2"
+                    Aspect="Uniform"
+                    Data="M8.20809 11.4809C8.20966 11.4712 8.21123 11.4616 8.2127 11.452L5.34231 12.0734L2.29871 8.68619L3.17035 7.90294L5.75922 10.7841L8.65751 10.1567C8.82641 9.85568 9.03431 9.58084 9.27415 9.33818L7.21493 8.83083L5.41082 5.50176L6.44121 4.94344L7.9984 7.81696L10.2937 8.38244C9.85587 8.02575 9.57606 7.48251 9.57606 6.8738C9.57606 6.41888 9.73267 6.00079 9.99435 5.6695C9.62314 5.34696 9.38771 4.872 9.38771 4.34278C9.38771 3.37352 10.1763 2.58496 11.1455 2.58496H11.2581V3.75684H11.1455C10.8224 3.75684 10.5596 4.01969 10.5596 4.34278C10.5596 4.66586 10.8224 4.92872 11.1455 4.92872H12.8545C13.1776 4.92872 13.4404 4.66586 13.4404 4.34278C13.4404 4.01969 13.1776 3.75684 12.8545 3.75684H12.7419V2.58496H12.8545C13.8237 2.58496 14.6123 3.37352 14.6123 4.34278C14.6123 4.872 14.3769 5.34696 14.0056 5.6695C14.2673 6.00075 14.4239 6.41888 14.4239 6.8738C14.4239 7.48255 14.1441 8.02575 13.7063 8.38244L16.0016 7.81696L17.5588 4.94344L18.5891 5.50176L16.785 8.83083L14.7258 9.33818C14.9656 9.58084 15.1735 9.85568 15.3424 10.1567L18.2407 10.7841L20.8296 7.90294L21.7012 8.68619L18.6576 12.0734L15.7872 11.452C15.7887 11.4617 15.7903 11.4713 15.7919 11.481C15.7946 11.4976 15.7973 11.5143 15.7995 11.5311L15.8517 11.9278C15.599 12.2951 15.1434 12.6315 14.549 12.8853C13.8131 13.1995 12.9317 13.3655 12 13.3655C11.0682 13.3655 10.1868 13.1995 9.45099 12.8853C8.85653 12.6315 8.40091 12.2951 8.14829 11.9278L8.20044 11.5311C8.20264 11.5142 8.20537 11.4975 8.20809 11.4809Z M21.5981 14.2648L22 15.3657L18.8898 16.5011L16.2653 15.0733L16.4344 16.3595C16.7866 19.0381 14.7017 21.4151 12 21.4151C9.2983 21.4151 7.21337 19.0381 7.5656 16.3595L7.7347 15.0733L5.11016 16.5011L2 15.3657L2.40188 14.2648L5.01501 15.2188L7.92365 13.6365L7.95747 13.3792C8.25439 13.6001 8.60048 13.7964 8.99087 13.9631C9.87095 14.3388 10.9115 14.5374 12 14.5374C13.0885 14.5374 14.1291 14.3388 15.0091 13.9631C15.3995 13.7964 15.7456 13.6001 16.0425 13.3792L16.0764 13.6365L18.985 15.2188L21.5981 14.2648Z"
+                    Fill="White"
+                    HeightRequest="26"
+                    HorizontalOptions="Center"
+                    Stroke="White"
+                    StrokeThickness="0"
+                    VerticalOptions="Center"
+                    WidthRequest="26" />
+                <BoxView
+                    Grid.Column="3"
+                    xct:ShadowEffect.Color="#0BA360"
+                    xct:ShadowEffect.OffsetX="5"
+                    xct:ShadowEffect.OffsetY="10"
+                    xct:ShadowEffect.Opacity="{OnPlatform Android='1',
+                                                          iOS='0.3'}"
+                    xct:ShadowEffect.Radius="{OnPlatform Android='28'}"
+                    CornerRadius="28"
+                    HeightRequest="56"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="56">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Offset="0" Color="#0BA360" />
+                            <GradientStop Offset="1" Color="#3CBA92" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <Path
+                    Grid.Column="3"
+                    Aspect="Uniform"
+                    Data="M12 2C7.175 2 3.25 5.925 3.25 10.75C3.25 15.28 6.92375 22 12 22C17.0762 22 20.75 15.28 20.75 10.75C20.75 5.925 16.8237 2 12 2ZM18.2438 8.78625C18.2213 8.6225 18.1325 8.475 18 8.375C17.8688 8.275 17.7025 8.235 17.5375 8.25625C14.7838 8.65 12.8625 11.21 13.2563 13.9625C13.3013 14.275 13.5688 14.5 13.8738 14.5C13.9025 14.5 13.9338 14.4975 13.9625 14.4937C15.2963 14.3037 16.4775 13.6037 17.285 12.5262C18.0938 11.4487 18.4338 10.1212 18.2438 8.78625ZM5.75625 8.78625C5.805 8.445 6.12625 8.21 6.46375 8.25625C7.7975 8.4475 8.9775 9.145 9.785 10.2225C10.5937 11.3012 10.9337 12.6287 10.7437 13.9625C10.6987 14.275 10.4312 14.5 10.125 14.5C10.0962 14.5 10.0662 14.4975 10.0375 14.4937C8.70375 14.3025 7.5225 13.6037 6.715 12.5262C5.90625 11.4487 5.56625 10.12 5.75625 8.78625Z"
+                    Fill="White"
+                    HeightRequest="26"
+                    HorizontalOptions="Center"
+                    Stroke="White"
+                    StrokeThickness="0"
+                    VerticalOptions="Center"
+                    WidthRequest="26" />
+                <BoxView
+                    Grid.Column="4"
+                    xct:ShadowEffect.Color="#FF7EB3"
+                    xct:ShadowEffect.OffsetX="5"
+                    xct:ShadowEffect.OffsetY="10"
+                    xct:ShadowEffect.Opacity="{OnPlatform Android='1',
+                                                          iOS='0.3'}"
+                    xct:ShadowEffect.Radius="{OnPlatform Android='28'}"
+                    CornerRadius="28"
+                    HeightRequest="56"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="56">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Offset="0" Color="#FF7EB3" />
+                            <GradientStop Offset="1" Color="#FF758C" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <Path
+                    Grid.Column="4"
+                    Aspect="Uniform"
+                    Data="M12.9374 2C8.8012 2 5.43745 5.36375 5.43745 9.5V10.6025L3.6287 14.22C3.5312 14.4137 3.54245 14.6438 3.6562 14.8275C3.76995 15.0113 3.9712 15.125 4.18745 15.125H5.43745V18.135C5.43745 18.5025 5.59745 18.8487 5.8787 19.0863C6.15995 19.3237 6.52495 19.4275 6.88995 19.3662L9.18745 18.9862V21.375C9.18745 21.5588 9.26745 21.7337 9.4087 21.8512C9.52245 21.9475 9.66495 22 9.81245 22C9.8462 22 9.8812 21.9975 9.91495 21.9912L17.4149 20.7412C17.7162 20.6912 17.9374 20.4312 17.9374 20.125V16.2737C17.9374 15.4037 18.3649 14.7063 18.7237 14.2725C19.8287 12.9375 20.4374 11.2425 20.4374 9.5C20.4374 5.36375 17.0737 2 12.9374 2Z"
+                    Fill="White"
+                    HeightRequest="26"
+                    HorizontalOptions="Center"
+                    Stroke="White"
+                    StrokeThickness="0"
+                    VerticalOptions="Center"
+                    WidthRequest="26" />
+            </Grid>
+            <controls:CharacterCarousel
+                Title="Heróis"
+                Grid.Row="4"
+                Margin="25,48,0,0"
+                ItemsSource="{Binding Heroes}" />
+            <controls:CharacterCarousel
+                Title="Vilões"
+                Grid.Row="5"
+                Margin="25,48,0,0"
+                ItemsSource="{Binding Villains}" />
+            <controls:CharacterCarousel
+                Title="Anti-heróis"
+                Grid.Row="6"
+                Margin="25,48,0,0"
+                ItemsSource="{Binding Antiheroes}" />
+            <controls:CharacterCarousel
+                Title="Alienígenas"
+                Grid.Row="7"
+                Margin="25,48,0,0"
+                ItemsSource="{Binding Aliens}" />
+            <controls:CharacterCarousel
+                Title="Humanos"
+                Grid.Row="8"
+                Margin="25,48,0,0"
+                ItemsSource="{Binding Humans}" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

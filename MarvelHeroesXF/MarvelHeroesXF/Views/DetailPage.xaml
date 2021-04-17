@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MarvelHeroesXF.Views.DetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="False"
+    BackgroundColor="Black"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <Grid RowDefinitions="auto, auto, *">
+                <Image
+                    x:Name="imgBackground"
+                    Grid.RowSpan="3"
+                    Margin="{OnPlatform Android='0',
+                                        iOS='0,-40,0,0'}"
+                    Aspect="AspectFill"
+                    HeightRequest="810"
+                    ScaleX="1"
+                    Source="{Binding Character.image}"
+                    VerticalOptions="Start" />
+                <BoxView Grid.RowSpan="3" IsVisible="{OnPlatform Android='True', iOS='False'}">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Offset="0" Color="#00212121" />
+                            <GradientStop Offset="0" Color="#00212121" />
+                            <GradientStop Offset="1" Color="#000000" />
+                            <GradientStop Offset="1" Color="#000000" />
+                            <GradientStop Offset="1" Color="#000000" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <BoxView Grid.RowSpan="3" IsVisible="{OnPlatform Android='False', iOS='True'}">
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                            <GradientStop Offset="0" Color="#00212121" />
+                            <GradientStop Offset="0.5" Color="#000000" />
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <Path
+                    Grid.Row="0"
+                    Margin="{OnPlatform Android='25,65,0,0',
+                                        iOS='25,25,0,0'}"
+                    Aspect="Uniform"
+                    Data="M9.13358 17.8762C8.89917 18.1106 8.58128 18.2422 8.24982 18.2422C7.91836 18.2422 7.60047 18.1106 7.36606 17.8762L2.36599 12.8762C2.13165 12.6418 2 12.3239 2 11.9924C2 11.661 2.13165 11.3431 2.36599 11.1087L7.36606 6.10859C7.60181 5.88088 7.91757 5.75489 8.24532 5.75774C8.57307 5.76059 8.88659 5.89205 9.11835 6.12381C9.35011 6.35558 9.48158 6.6691 9.48443 6.99685C9.48727 7.3246 9.36128 7.64035 9.13358 7.87611L6.26729 10.7424H20.75C21.0815 10.7424 21.3995 10.8741 21.6339 11.1085C21.8683 11.3429 22 11.6609 22 11.9924C22 12.3239 21.8683 12.6419 21.6339 12.8763C21.3995 13.1107 21.0815 13.2424 20.75 13.2424H6.26729L9.13358 16.1087C9.36792 16.3431 9.49957 16.661 9.49957 16.9925C9.49957 17.3239 9.36792 17.6418 9.13358 17.8762Z"
+                    Fill="White"
+                    HeightRequest="14"
+                    HorizontalOptions="Start"
+                    Stroke="White"
+                    StrokeThickness="0">
+                    <Path.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackPageCommand}" NumberOfTapsRequired="1" />
+                    </Path.GestureRecognizers>
+                </Path>
+                <StackLayout
+                    Grid.Row="1"
+                    Margin="25,0,0,0"
+                    Spacing="0">
+                    <Label
+                        Margin="0,240,0,0"
+                        FontFamily="GilroyMedium"
+                        FontSize="16"
+                        Text="{Binding Character.personName}"
+                        TextColor="{StaticResource colorWhite}" />
+                    <Label
+                        Margin="0,0,185,0"
+                        FontFamily="GilroyHeavy"
+                        FontSize="40"
+                        Text="{Binding Character.name}"
+                        TextColor="{StaticResource colorWhite}" />
+                </StackLayout>
+                <Grid
+                    x:Name="gridDetails"
+                    Grid.Row="2"
+                    Margin="25,75,0,0"
+                    ColumnDefinitions="* ,* ,* ,*"
+                    RowDefinitions="auto, auto, 230, auto, auto, auto"
+                    RowSpacing="14">
+                    <!--  AGE  -->
+                    <Path
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="-20,0,0,0"
+                        Aspect="Uniform"
+                        Data="M16.5653 18.0869H14.6087V8.30405C14.6087 7.94385 14.3168 7.65186 13.9566 7.65186H12.6522V7.10491C13.8044 6.69623 14.305 5.34189 13.6957 4.2849C13.6956 4.28482 13.6956 4.28474 13.6955 4.28462L12.5648 2.32571C12.3139 1.89106 11.6855 1.8918 11.4351 2.32571L10.3045 4.28466C9.69365 5.34322 10.1977 6.69698 11.3478 7.10487V7.65182H10.0434C9.68322 7.65182 9.39123 7.94382 9.39123 8.30401C9.39123 9.38288 8.51353 10.2606 7.43466 10.2606C7.07446 10.2606 6.78247 10.5526 6.78247 10.9128V13.5215C6.78247 13.8817 7.07446 14.1737 7.43466 14.1737H9.39123V18.0869H7.43466C7.07446 18.0869 6.78247 18.3789 6.78247 18.7391V21.3478C6.78247 21.708 7.07446 22 7.43466 22H16.5653C16.9255 22 17.2175 21.708 17.2175 21.3478V18.7391C17.2175 18.3789 16.9255 18.0869 16.5653 18.0869ZM11.4342 4.93662L12 3.95638L12.5656 4.93634C12.8143 5.36783 12.5012 5.91268 11.9999 5.91268C11.4982 5.91268 11.1858 5.36717 11.4342 4.93662ZM15.9131 20.6957H8.08685V19.3913H10.0434C10.4036 19.3913 10.6956 19.0993 10.6956 18.7391V13.5216C10.6956 13.1614 10.4036 12.8694 10.0434 12.8694H8.08685V11.4995C9.36264 11.2395 10.3701 10.232 10.6301 8.95624H13.3044V18.7391C13.3044 19.0993 13.5964 19.3913 13.9566 19.3913H15.9131V20.6957Z"
+                        Fill="White"
+                        HeightRequest="22"
+                        HorizontalOptions="Center"
+                        Stroke="White"
+                        StrokeThickness="0" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="-25,0,0,0"
+                        FontFamily="GilroyMedium"
+                        FontSize="12"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Character.age, StringFormat='{0} anos'}"
+                        TextColor="{StaticResource colorWhite}" />
+                    <!--  WEIGHT  -->
+                    <Path
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="-20,0,0,0"
+                        Aspect="Uniform"
+                        Data="M16.6746 9.41016L17.6046 7.64008C18.2276 6.45422 18.1843 5.00531 17.4915 3.85879C16.7987 2.71227 15.5363 2 14.1967 2H9.80333C8.46376 2 7.20122 2.71227 6.50845 3.85875C5.81571 5.00527 5.77239 6.45418 6.3954 7.64004L7.3254 9.41016C5.35364 10.8541 4.07056 13.1853 4.07056 15.8109C4.07056 17.748 4.77692 19.6133 6.05962 21.0629C6.58661 21.6584 7.34528 22 8.14095 22H15.859C16.6548 22 17.4134 21.6584 17.9404 21.0629C19.223 19.6132 19.9294 17.7481 19.9294 15.8109C19.9294 13.1853 18.6463 10.8541 16.6746 9.41016ZM7.62446 4.53309C8.08259 3.77484 8.91751 3.30387 9.80333 3.30387H14.1967C15.0825 3.30387 15.9174 3.77484 16.3756 4.53309C16.8337 5.29133 16.8623 6.24949 16.4503 7.03371L15.5618 8.72492C15.1435 8.51395 14.7092 8.34156 14.2613 8.20867L15.0683 6.67277C15.2867 6.25699 15.2715 5.74895 15.0286 5.34699C14.7857 4.94496 14.3431 4.69523 13.8733 4.69523H10.1265C9.65685 4.69523 9.21415 4.94496 8.97122 5.34699C8.72837 5.74902 8.71313 6.25699 8.93157 6.67285L9.73853 8.20871C9.29071 8.3416 8.85634 8.51402 8.4381 8.72496L7.54954 7.03375C7.1377 6.24941 7.16634 5.29125 7.62446 4.53309ZM13.9141 6.06637L12.9315 7.93652C12.6259 7.90059 12.3152 7.88156 12.0001 7.88156C11.685 7.88156 11.3743 7.90063 11.0686 7.93652L10.086 6.06641C10.0786 6.05223 10.079 6.03488 10.0874 6.02121C10.0956 6.00754 10.1107 5.99906 10.1267 5.99906H13.8734C13.8894 5.99906 13.9045 6.00754 13.9128 6.02121C13.921 6.03488 13.9215 6.05223 13.9141 6.06637ZM16.9639 20.1988C16.6842 20.5149 16.2815 20.6962 15.859 20.6962H8.14099C7.71849 20.6962 7.31579 20.5149 7.03614 20.1988C5.96458 18.9878 5.37446 17.4295 5.37446 15.8109C5.37446 12.1576 8.34669 9.18539 12 9.18539C15.6533 9.18539 18.6256 12.1576 18.6256 15.8109C18.6256 17.4295 18.0354 18.9878 16.9639 20.1988Z"
+                        Fill="White"
+                        HeightRequest="22"
+                        HorizontalOptions="Center"
+                        Stroke="White"
+                        StrokeThickness="0" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="-20,0,0,0"
+                        FontFamily="GilroyMedium"
+                        FontSize="12"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Character.weight, StringFormat='{0}Kg'}"
+                        TextColor="{StaticResource colorWhite}" />
+                    <!--  HEIGHT  -->
+                    <Path
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Margin="-20,0,0,0"
+                        Aspect="Uniform"
+                        Data="M21.8185 20.9417L3.05841 2.18174C2.8811 2.00428 2.61453 1.95118 2.38275 2.04731C2.15112 2.14329 2.00006 2.36927 2.00006 2.62012V21.38C2.00006 21.7224 2.27762 22 2.62003 22H21.3801C21.6308 22 21.8569 21.8489 21.9528 21.6173C22.0487 21.3857 21.9958 21.119 21.8185 20.9417ZM15.2683 20.7601V19.7257C15.2683 19.3833 14.9908 19.1057 14.6484 19.1057C14.3061 19.1057 14.0284 19.3833 14.0284 19.7257V20.7601H12.5884V20.1012C12.5884 19.7589 12.3109 19.4812 11.9685 19.4812C11.6261 19.4812 11.3485 19.7589 11.3485 20.1012V20.7601H9.90838V19.7257C9.90838 19.3833 9.63083 19.1057 9.28842 19.1057C8.94601 19.1057 8.66845 19.3833 8.66845 19.7257V20.7601H7.22848V20.1012C7.22848 19.7589 6.95077 19.4812 6.60852 19.4812C6.26611 19.4812 5.9884 19.7589 5.9884 20.1012V20.7601H3.24014V18.0117H3.89886C4.24127 18.0117 4.51883 17.7341 4.51883 17.3917C4.51883 17.0493 4.24127 16.7717 3.89886 16.7717H3.24014V15.3316H4.27438C4.61679 15.3316 4.8945 15.054 4.8945 14.7116C4.8945 14.3692 4.61679 14.0917 4.27438 14.0917H3.24014V12.6517H3.89886C4.24127 12.6517 4.51883 12.3741 4.51883 12.0317C4.51883 11.6893 4.24127 11.4118 3.89886 11.4118H3.24014V9.97165H4.27438C4.61679 9.97165 4.8945 9.6941 4.8945 9.35169C4.8945 9.00928 4.61679 8.73173 4.27438 8.73173H3.24014V4.11686L19.8832 20.7601H15.2683Z M6.58564 18.0117H12.2137C12.4644 18.0117 12.6905 17.8606 12.7864 17.629C12.8823 17.3972 12.8294 17.1307 12.6519 16.9533L7.02403 11.3253C6.84672 11.148 6.58 11.095 6.34837 11.191C6.11674 11.287 5.96568 11.513 5.96568 11.7637V17.3917C5.96568 17.7341 6.24323 18.0117 6.58564 18.0117ZM7.20561 13.2606L10.7168 16.7718H7.20561V13.2606Z"
+                        Fill="White"
+                        HeightRequest="22"
+                        HorizontalOptions="Center"
+                        Stroke="White"
+                        StrokeThickness="0" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Margin="-20,0,0,0"
+                        FontFamily="GilroyMedium"
+                        FontSize="12"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Character.height, StringFormat='{0:N2}m'}"
+                        TextColor="{StaticResource colorWhite}" />
+                    <!--  UNIVERSE  -->
+                    <Path
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Margin="0,0,25,0"
+                        Data="M19.2568 2.4834C18.4575 2.87321 17.4443 3.51335 16.3114 4.34253C13.0188 2.48161 8.66756 2.89509 5.77771 5.78498C2.88129 8.68136 2.47734 13.0313 4.33526 16.3186C3.50701 17.4504 2.86817 18.4624 2.47976 19.2607C2.11558 20.0093 1.70159 21.0748 2.309 21.6822C2.82637 22.1996 3.6586 21.9914 4.33171 21.7143C5.42508 21.2642 6.74 20.3625 7.68597 19.6633C10.9366 21.4929 15.2871 21.1325 18.2062 18.2134C21.1015 15.3181 21.5004 10.9708 19.6564 7.69387C19.8356 7.45155 20.0073 7.21345 20.1699 6.98062C20.9017 5.93317 21.421 5.04227 21.7136 4.33265C21.8575 3.98354 22.2955 2.92118 21.6828 2.30842C21.0753 1.70101 20.0073 2.11738 19.2568 2.4834ZM12.1457 4.38843C12.6503 4.39831 13.1467 4.45686 13.6295 4.56177L11.6782 6.51308C10.4341 7.75719 9.74895 9.41129 9.74895 11.1707C9.74895 12.6171 9.18568 13.977 8.16292 14.9998L6.20783 16.9549C5.3565 15.9637 4.81119 14.818 4.5545 13.6368L6.12479 12.0665C7.03869 11.1526 7.79518 10.103 8.37318 8.947C8.89477 7.90381 9.5774 6.95671 10.4021 6.13206L12.1457 4.38843ZM8.99144 15.8283C10.2355 14.5842 10.9207 12.9301 10.9207 11.1707C10.9207 9.72423 11.484 8.3644 12.5067 7.3416L14.8934 4.9549C15.817 5.3342 16.6599 5.89591 17.3776 6.61358C17.695 6.93101 17.9808 7.2718 18.2336 7.63196C16.8811 9.38087 15.1413 11.3356 13.2348 13.2421C11.3274 15.1494 9.37254 16.8892 7.62422 18.2406C7.42186 18.0986 7.2257 17.946 7.0363 17.7833L8.99144 15.8283ZM6.60627 6.61354C7.63695 5.58285 8.91313 4.88455 10.3045 4.57243L9.57346 5.30346C8.65956 6.21732 7.9031 7.26692 7.32507 8.42295C6.80347 9.46613 6.12084 10.4132 5.29619 11.2379L4.38112 12.153C4.3801 12.1018 4.37924 12.0505 4.37924 11.9992C4.37928 9.96234 5.17018 8.04966 6.60627 6.61354ZM6.64009 18.976C4.31003 20.6523 3.41687 20.8215 3.16951 20.8276C3.1824 20.495 3.53139 19.4604 5.0277 17.3607C5.25756 17.6583 5.50758 17.9433 5.77775 18.2135C6.05186 18.4876 6.34125 18.7408 6.64357 18.9734L6.64009 18.976ZM17.3776 17.3849C15.9415 18.821 14.0289 19.6119 11.992 19.6119C11.9406 19.6119 11.8894 19.6111 11.8382 19.6101L13.137 18.3113C13.679 17.7692 14.3499 17.3546 15.0772 17.1122C15.9761 16.8125 16.8054 16.3 17.4754 15.63L19.4188 13.6866C19.1066 15.078 18.4083 16.3542 17.3776 17.3849ZM19.6028 11.8455L16.6469 14.8014C16.1048 15.3435 15.4339 15.7581 14.7067 16.0005C13.8078 16.3002 12.9785 16.8127 12.3085 17.4827L10.3545 19.4367C9.78574 19.3131 9.23591 19.1253 8.71385 18.8766C10.4 17.5441 12.2449 15.8891 14.0634 14.0706C15.8812 12.2528 17.5362 10.4082 18.8696 8.72151C19.3292 9.68662 19.5813 10.7465 19.6028 11.8455ZM18.9721 6.644C18.9703 6.64647 18.9685 6.649 18.9667 6.6515C18.7339 6.34895 18.4805 6.05929 18.2062 5.78498C17.936 5.51481 17.651 5.26479 17.3534 5.03493C19.4564 3.53589 20.4934 3.184 20.8278 3.16971C20.8211 3.41879 20.6491 4.31382 18.9721 6.644Z M14.4777 10.3421C14.9356 9.88418 14.9357 9.14292 14.4777 8.68495C14.0198 8.22703 13.2785 8.22695 12.8206 8.68495C12.3626 9.14284 12.3625 9.8841 12.8206 10.3421C13.2784 10.8 14.0197 10.8001 14.4777 10.3421Z"
+                        Fill="White"
+                        HeightRequest="22"
+                        HorizontalOptions="Center"
+                        Stroke="White"
+                        StrokeThickness="0" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Margin="0,0,25,0"
+                        FontFamily="GilroyMedium"
+                        FontSize="12"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Character.universe}"
+                        TextColor="{StaticResource colorWhite}" />
+                    <Label
+                        Grid.Row="2"
+                        Grid.ColumnSpan="4"
+                        Margin="0,12,38,0"
+                        FontFamily="GilroyMedium"
+                        FontSize="14"
+                        Text="{Binding Character.description}"
+                        TextColor="{StaticResource colorWhite}" />
+                    <Grid
+                        Grid.Row="3"
+                        Grid.ColumnSpan="4"
+                        Margin="{OnPlatform Android='0,15,0,0',
+                                            iOS='0,-15,0,0'}"
+                        ColumnDefinitions=".3*, *"
+                        RowDefinitions="24, 24, 24, 24, 24, 24"
+                        RowSpacing="24">
+                        <Label
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            FontFamily="GilroyBold"
+                            FontSize="18"
+                            Text="Habilidades"
+                            TextColor="{StaticResource colorWhite}"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="GilroyRegular"
+                            FontSize="12"
+                            Text="Força"
+                            TextColor="{StaticResource colorWhite}"
+                            VerticalTextAlignment="Center" />
+                        <StackLayout
+                            x:Name="stackStrength"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="4" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            FontFamily="GilroyRegular"
+                            FontSize="12"
+                            Text="Inteligência"
+                            TextColor="{StaticResource colorWhite}"
+                            VerticalTextAlignment="Center" />
+                        <StackLayout
+                            x:Name="stackIntelligence"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="4" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontFamily="GilroyRegular"
+                            FontSize="12"
+                            Text="Agilidade"
+                            TextColor="{StaticResource colorWhite}"
+                            VerticalTextAlignment="Center" />
+                        <StackLayout
+                            x:Name="stackAgility"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="4"
+                            VerticalOptions="Center" />
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            FontFamily="GilroyRegular"
+                            FontSize="12"
+                            Text="Resistência"
+                            TextColor="{StaticResource colorWhite}"
+                            VerticalTextAlignment="Center" />
+                        <StackLayout
+                            x:Name="stackResistance"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="4" />
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            FontFamily="GilroyRegular"
+                            FontSize="12"
+                            Text="Velocidade"
+                            TextColor="{StaticResource colorWhite}"
+                            VerticalTextAlignment="Center" />
+                        <StackLayout
+                            x:Name="stackVelocity"
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="4" />
+                    </Grid>
+                    <Label
+                        Grid.Row="4"
+                        Grid.ColumnSpan="4"
+                        Margin="0,10,0,10"
+                        FontFamily="GilroyBold"
+                        FontSize="18"
+                        Text="Filmes"
+                        TextColor="{StaticResource colorWhite}" />
+                    <ScrollView
+                        Grid.Row="5"
+                        Grid.ColumnSpan="4"
+                        HorizontalScrollBarVisibility="Never"
+                        Orientation="Horizontal">
+                        <FlexLayout
+                            BindableLayout.ItemsSource="{Binding Character.movies}"
+                            Direction="Row"
+                            JustifyContent="SpaceAround">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame
+                                        Margin="0,0,16,0"
+                                        Padding="0"
+                                        CornerRadius="16"
+                                        HasShadow="False"
+                                        HeightRequest="230"
+                                        IsClippedToBounds="True"
+                                        WidthRequest="140">
+                                        <Image
+                                            Aspect="AspectFill"
+                                            HorizontalOptions="Center"
+                                            Source="{Binding image}"
+                                            VerticalOptions="Center" />
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </ScrollView>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
